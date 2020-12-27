@@ -19,7 +19,8 @@ import java.util.*;
 public class Eleicao {
  static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
-        int candidato,contador1=0,contador2=0,contador3=0,contadorLoop=0;
+        int candidato;
+        float contador1=0,contador2=0,contador3=0,contadorLoop=0,porcentagemVotos1,porcentagemVotos2,porcentagemVotos3;
         char continuar;
         System.out.println("");
         System.out.println("***ELEIÇÕES***");
@@ -46,7 +47,26 @@ public class Eleicao {
         continuar=in.next().charAt(0);
         contadorLoop++;
     }while (continuar=='s' ||continuar=='S');
+    porcentagemVotos1=(contador1/contadorLoop)*100;
+    porcentagemVotos2=(contador2/contadorLoop)*100;
+    porcentagemVotos3=(contador3/contadorLoop)*100;
     System.out.println("candidato1= ["+contador1+"] candidato2= ["+contador2+"] candidato3= ["+contador3+"]"+" loops: "+contadorLoop);
+    System.out.println("porcentagem dos candidatos 1,2,3: ");
+    System.out.println(porcentagemVotos1);
+    System.out.println(porcentagemVotos2);
+    System.out.println(porcentagemVotos3);
+        if(porcentagemVotos1 >=50 || porcentagemVotos2 >=50 || porcentagemVotos3 >= 50){
+
+            if(porcentagemVotos1 > porcentagemVotos2 && porcentagemVotos1 > porcentagemVotos3) {
+                System.out.println("O candidato 1 venceu");
+            }if(porcentagemVotos2 > porcentagemVotos1 && porcentagemVotos2 > porcentagemVotos3) {
+                System.out.println("O candidato 2 venceu");
+            }if(porcentagemVotos3 > porcentagemVotos1 && porcentagemVotos3 > porcentagemVotos2) {
+                System.out.println("O candidato 3 venceu");
+            }
+        }else{
+            System.out.println("Segundo turno!");
+        }
 
     }
 }
