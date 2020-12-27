@@ -1,4 +1,5 @@
 package src;
+
 /**
  * 1. Faça um algoritmo que leia o ano que uma pessoa (dia, mês e ano), 
  * o ano atual e mostre a idade da pessoa.
@@ -19,40 +20,42 @@ public class Idade {
         int diaNascimento, mesNascimento, anoNascimento, anoAtual, mesAtual, diaAtual, idadeDias = 0, idadeMeses = 0,
                 idadeAnos = 0;
         String diaA, diaN, mesA, mesN, anoA, anoN, dataAtual, dataNascimento;
-        boolean prosseguir=true;
+        boolean prosseguir = true;
 
         try {
-            do{
-            System.out.print("Insira a data atual(DD/MM/AAAA): ");
-            dataAtual = in.next();
-            System.out.print("Insira a data do seu nascimento(DD/MM/AAAA): ");
-            dataNascimento = in.next();
-            
-            diaA = dataAtual.substring(0, 2);
-            mesA = dataAtual.substring(3, 5);
-            anoA = dataAtual.substring(6, 10);
-            anoAtual = Integer.parseInt(anoA);
-            mesAtual = Integer.parseInt(mesA);
-            diaAtual = Integer.parseInt(diaA);
+            do {
+                System.out.print("Insira a data atual(DD/MM/AAAA): ");
+                dataAtual = in.next();
+                System.out.print("Insira a data do seu nascimento(DD/MM/AAAA): ");
+                dataNascimento = in.next();
 
-            diaN = dataNascimento.substring(0, 2);
-            mesN = dataNascimento.substring(3, 5);
-            anoN = dataNascimento.substring(6, 10);
-            anoNascimento = Integer.parseInt(anoN);
-            mesNascimento = Integer.parseInt(mesN);
-            diaNascimento = Integer.parseInt(diaN);
+                diaA = dataAtual.substring(0, 2);
+                mesA = dataAtual.substring(3, 5);
+                anoA = dataAtual.substring(6, 10);
+                anoAtual = Integer.parseInt(anoA);
+                mesAtual = Integer.parseInt(mesA);
+                diaAtual = Integer.parseInt(diaA);
 
-                if(diaAtual < 0 || diaAtual > 31 || diaNascimento< 0 || diaNascimento > 31 || mesAtual<0 || mesAtual>12  || mesNascimento>12 || mesNascimento<0 || anoAtual<2020 || anoNascimento<1900 || anoNascimento>=anoAtual) {
-                    prosseguir=false;
+                diaN = dataNascimento.substring(0, 2);
+                mesN = dataNascimento.substring(3, 5);
+                anoN = dataNascimento.substring(6, 10);
+                anoNascimento = Integer.parseInt(anoN);
+                mesNascimento = Integer.parseInt(mesN);
+                diaNascimento = Integer.parseInt(diaN);
+
+                if (diaAtual < 0 || diaAtual > 31 || diaNascimento < 0 || diaNascimento > 31 || mesAtual < 0
+                        || mesAtual > 12 || mesNascimento > 12 || mesNascimento < 0 || anoAtual < 2020
+                        || anoNascimento < 1900 || anoNascimento >= anoAtual) {
+                    prosseguir = false;
                     System.out.println("Você inseriu uma data inválida.Tente outra vez:");
-                    
-                }else{}
-        }while(prosseguir==false);
+
+                } else {
+                }
+            } while (prosseguir == false);
             idadeAnos = anoAtual - anoNascimento;
 
             if (mesAtual < mesNascimento) {
                 idadeAnos--;
-                
 
             }
             if (mesAtual == mesNascimento) {
@@ -68,7 +71,6 @@ public class Idade {
         } catch (Exception stringIndexOutOfBounException) {
             System.out.println("FORMATO INVÁLIDO!");
             System.out.println("TENTE OUTRA VEZ...");
-            
 
         }
 
