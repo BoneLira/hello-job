@@ -20,8 +20,10 @@ public class Eleicao {
  static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
         int candidato;
+        char continuar;
         System.out.println("");
         System.out.println("***ELEIÇÕES***");
+        do{
         System.out.println("VOCÊ PODE ESCOLHER ENTRE OS CANDIDATOS: 1,2 E 3 PARA VOTAR.");
         do{
         System.out.print("Escolha seu candidato: ");
@@ -29,8 +31,13 @@ public class Eleicao {
             if(candidato<1 || candidato>3) {
                 System.out.println("VOTO INVÁLIDO!");
                 System.out.println("Escolha um candidato válido(1,2 ou 3)");
+                System.out.println("");
             }else{}
         }while(candidato<1 || candidato>3);
+        System.out.print("Deseja continuar votando? (s/n): ");
+        continuar=in.next().charAt(0);
+    }while (continuar=='s' ||continuar=='S');
+
+
     }
-    
 }
