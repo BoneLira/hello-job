@@ -19,12 +19,15 @@ public class Idade {
         int diaNascimento, mesNascimento, anoNascimento, anoAtual, mesAtual, diaAtual, idadeDias = 0, idadeMeses = 0,
                 idadeAnos = 0;
         String diaA, diaN, mesA, mesN, anoA, anoN, dataAtual, dataNascimento;
+        boolean prosseguir=true;
 
         try {
+            do{
             System.out.print("Insira a data atual(DD/MM/AAAA): ");
             dataAtual = in.next();
             System.out.print("Insira a data do seu nascimento(DD/MM/AAAA): ");
             dataNascimento = in.next();
+            
             diaA = dataAtual.substring(0, 2);
             mesA = dataAtual.substring(3, 5);
             anoA = dataAtual.substring(6, 10);
@@ -39,6 +42,12 @@ public class Idade {
             mesNascimento = Integer.parseInt(mesN);
             diaNascimento = Integer.parseInt(diaN);
 
+                if(diaAtual < 0 || diaAtual > 31 || diaNascimento< 0 || diaNascimento > 31 || mesAtual<0 || mesAtual>12  || mesNascimento>12 || mesNascimento<0 || anoAtual<2020 || anoNascimento<1900 || anoNascimento>=anoAtual) {
+                    prosseguir=false;
+                    System.out.println("Você inseriu uma data inválida.Tente outra vez:");
+                    
+                }else{}
+        }while(prosseguir==false);
             idadeAnos = anoAtual - anoNascimento;
 
             if (mesAtual < mesNascimento) {
@@ -58,7 +67,8 @@ public class Idade {
                     "Sua idade em [dias: " + idadeDias + "] [meses: " + idadeMeses + "] [anos: " + idadeAnos + "] ");
         } catch (Exception stringIndexOutOfBounException) {
             System.out.println("FORMATO INVÁLIDO!");
-            // loop
+            System.out.println("TENTE OUTRA VEZ...");
+            
 
         }
 
