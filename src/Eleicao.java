@@ -19,7 +19,7 @@ import java.util.*;
 public class Eleicao {
  static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
-        int candidato;
+        int candidato,contador1=0,contador2=0,contador3=0,contadorLoop=0;
         char continuar;
         System.out.println("");
         System.out.println("***ELEIÇÕES***");
@@ -33,11 +33,20 @@ public class Eleicao {
                 System.out.println("Escolha um candidato válido(1,2 ou 3)");
                 System.out.println("");
             }else{}
+            
         }while(candidato<1 || candidato>3);
+            if(candidato==1){
+                contador1++;
+            }else if (candidato==2) {
+                contador2++;
+            }else{
+                contador3++;
+            }
         System.out.print("Deseja continuar votando? (s/n): ");
         continuar=in.next().charAt(0);
+        contadorLoop++;
     }while (continuar=='s' ||continuar=='S');
-
+    System.out.println("candidato1= ["+contador1+"] candidato2= ["+contador2+"] candidato3= ["+contador3+"]"+" loops: "+contadorLoop);
 
     }
 }
