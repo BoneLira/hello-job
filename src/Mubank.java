@@ -1,4 +1,5 @@
 package src;
+
 /**
  * /*
  * TRABALHO PARA O CURSO DE PROGRAMAÇÃO I, UNICAP
@@ -50,38 +51,44 @@ package src;
  *	
  */
 import java.util.*;
+
 public class Mubank {
- static Scanner in= new Scanner(System.in);
+    static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
-        int diaFatura,valorFatura,vencimentoFatura=28,valorFinalFatura=0,numeroFaturas,atrasoPagamento;
+        int diaFatura, valorFatura, vencimentoFatura = 28, valorFinalFatura = 0, numeroFaturas, atrasoPagamento,somatorioAtraso=0;
         System.out.println("===MuBank===");
         System.out.println("SISTEMA DE PAGAMENTO DE FATURAS");
         System.out.print("Quantas faturas serão pagas? ");
-        numeroFaturas=in.nextInt();
-        for (int i=0;i<numeroFaturas;i++){//loop quantidade de faturas para pagar.
+        numeroFaturas = in.nextInt();
+        for (int i = 0; i < numeroFaturas; i++) {// loop quantidade de faturas para pagar.
 
-            do{ //loop de erro.
-            System.out.print("Insira o valor da fatura: ");
+            do { // loop de erro.
+                System.out.print("Insira o valor da fatura: ");
                 valorFatura = in.nextInt();
-            System.out.print("Agora insira a data do pagamento: ");
-                diaFatura=in.nextInt();
-                    if(valorFatura<1 || diaFatura<1 || diaFatura>31) {
-                        System.out.println("INFORMAÇÕES INVÁLIDAS.Tente novamente.");
-                    }else{}
-            }while(valorFatura<1 || diaFatura<1 || diaFatura>31);
-            
-                //atraso do pagamento.
-            if(diaFatura>vencimentoFatura) {
-                atrasoPagamento=diaFatura-vencimentoFatura;
-                valorFinalFatura=valorFatura + ((2*valorFatura/100)+ ((valorFatura/100)*atrasoPagamento));
-                //adiantamento do pagamento.
-            }else if(diaFatura<vencimentoFatura) {
-                valorFinalFatura=valorFatura-(5*valorFatura/100);
-                //pagando na data.
-            }else{
-                valorFinalFatura=valorFatura;
+                System.out.print("Agora insira a data do pagamento: ");
+                diaFatura = in.nextInt();
+                if (valorFatura < 1 || diaFatura < 1 || diaFatura > 31) {
+                    System.out.println("INFORMAÇÕES INVÁLIDAS.Tente novamente.");
+                } else {
+                }
+            } while (valorFatura < 1 || diaFatura < 1 || diaFatura > 31);
+
+            // atraso do pagamento.
+            if (diaFatura > vencimentoFatura) {
+                atrasoPagamento = diaFatura - vencimentoFatura;
+                somatorioAtraso+=atrasoPagamento;
+                valorFinalFatura = valorFatura + ((2 * valorFatura / 100) + ((valorFatura / 100) * atrasoPagamento));
+                // adiantamento do pagamento.
+            } else if (diaFatura < vencimentoFatura) {
+                valorFinalFatura = valorFatura - (5 * valorFatura / 100);
+                // pagando na data.
+            } else {
+                valorFinalFatura = valorFatura;
             }
-            System.out.println(valorFinalFatura);
-        }       
+            System.out.println("Considerando a data em que você pagou,o valor da fatura ficou em R$"+valorFinalFatura+",00");
+        }
+        System.out.println("Você atrasou suas contas em "+somatorioAtraso+" dias.");
+
     }
 }
