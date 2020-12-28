@@ -41,7 +41,7 @@ package src;
  *  e) Por fim, o programa deve aprensentar uma mensagem de acordo com o
  *  número de pagamentos realizados:
  *  i) Se forem mais de 1000 pagamento: "Meta ótima alcançada"
- *  ii) Se forem entre 500 e 100: "Meta intermediária alcançada"
+ *  ii) Se forem entre 500 e 1000: "Meta intermediária alcançada"
  *  iii) entre 100 e 500: "Abaixo da meta"
  *  iv) abaixo de 100: "Programa desconinuado"
  *  
@@ -56,7 +56,8 @@ public class Mubank {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int diaFatura, valorFatura, vencimentoFatura = 28, valorFinalFatura = 0, numeroFaturas, atrasoPagamento,somatorioAtraso=0;
+        int diaFatura, vencimentoFatura = 28,numeroFaturas, atrasoPagamento,somatorioAtraso=0;
+        double valorFatura,valorFinalFatura = 0;
         System.out.println("===MuBank===");
         System.out.println("SISTEMA DE PAGAMENTO DE FATURAS");
         System.out.print("Quantas faturas serão pagas? ");
@@ -86,9 +87,18 @@ public class Mubank {
             } else {
                 valorFinalFatura = valorFatura;
             }
-            System.out.println("Considerando a data em que você pagou,o valor da fatura ficou em R$"+valorFinalFatura+",00");
+            System.out.println("Considerando a data em que você pagou,o valor da fatura ficou em R$"+valorFinalFatura);
         }
         System.out.println("Você atrasou suas contas em "+somatorioAtraso+" dias.");
+        if(numeroFaturas>1000) {
+            System.out.println("Meta ótima alcançada.");
+        }else if(numeroFaturas>500 && numeroFaturas<=1000) {
+            System.out.println("Meta intermediária alcançada.");
+        }else if (numeroFaturas>100 && numeroFaturas<=500) {
+            System.out.println("Abaixo da meta.");
+        }else{
+            System.out.println("Programa descontinuado.");
+        }
 
     }
 }
