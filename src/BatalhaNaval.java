@@ -99,9 +99,9 @@ public class BatalhaNaval {
         } while (barcos > 0);
         System.out.println("");
         if (contadorPontos == 5) {
-            System.out.println("INCRÍVEL!");
+            System.out.println("INCRÍVEL!Você afundou 5 barcos com 5 tiros");
         } else {
-            System.out.println("Você precisou de " + contadorPontos + " tentativas para destruir a frota inimiga.");
+            System.out.println("Você precisou de " + contadorPontos + " tiros para destruir a frota inimiga.");
         }
     }
 }
